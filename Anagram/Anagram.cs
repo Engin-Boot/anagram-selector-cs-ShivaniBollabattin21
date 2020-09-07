@@ -19,15 +19,15 @@ namespace Anagram
             return false;
         }
         public List<string> SelectAnagrams(string word, List<string> candidates) {
+            List<string> anagramList = new List<string>();
             for(int i=0;i<candidates.Count;i++)
             {
-                if(!WordPairIsAnagram(word,candidates[i]))
+                if(WordPairIsAnagram(word,candidates[i]))
                 {
-                    string notAnagram = candidates[i];
-                    candidates.Remove(notAnagram);
+                    anagramList.Add(candidates[i]);
                 }
             }
-            return candidates;
+            return anagramList;
         }
     }
 }
